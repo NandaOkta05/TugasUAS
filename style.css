@@ -28,6 +28,7 @@
   height: 600px;
   text-align: center;
   position: relative;
+  /* margin-bottom: 2rem; */
 }
 
 .jumbotron::after {
@@ -43,6 +44,9 @@
 .jumbotron .container {
   z-index: 1;
   position: relative;
+}
+strong {
+  font-weight: bold;
 }
 
 .jumbotron .display-4 {

@@ -21,6 +21,7 @@
   text-transform: uppercase;
   border-radius: 40px;
 }
+.jumbotron
 
 .jumbotron {
   /* background-image: url(img/gelang5.jpg); */
@@ -43,10 +44,16 @@
 .jumbotron .container {
   z-index: 1;
   position: relative;
+    /* ... other styles */
+    max-width: 700px; /* Adjust as needed */
+  
 }
 
 .jumbotron .display-4 {
   color: #CE6087;
+    /* ... other styles */
+    font-size: 30px; /* Adjust as needed */
+  
   margin-top: 150px;
   font-weight: 200;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
@@ -54,35 +61,39 @@
   margin-bottom: 30px;
 }
 /* tes */
-@media (min-width: 992px) {
+/* @media (min-width: 992px) {
   .jumbotron {
     background-size: cover;
     background-position: center;
     height: 640px; /* Adjust height if necessary for larger screens */
-  }
+  
 
-  .jumbotron .display-4 {
+  /* .jumbotron .display-4 {
     font-size: 62px;
-  }
-}
+  } */
 
-@media (max-width: 991px) {
+/* @media (max-width: 991px) {
   .jumbotron {
     background-size: cover;
     background-position: center;
     height: 500px; /* Adjust height for smaller screens */
-  }
+    
 
-  .jumbotron .display-4 {
+  /* .jumbotron .display-4 {
     font-size: 48px;
   }
+} */
+.jumbotron {
+  margin-bottom: 50px;
+  background-size: cover;
+  background-position: center; /* Atur jarak antara jumbotron dan elemen di bawahnya */
 }
 
 @media (max-width: 768px) {
   .jumbotron {
     background-size: cover;
     background-position: center;
-    height: 400px; /* Adjust height for mobile devices */
+    /* height: 400px; Adjust height for mobile devices */
   }
 
   .jumbotron .display-4 {
@@ -102,6 +113,12 @@
   background-color: #CE6087;
   padding: 30px;
 }
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+  width: 100%; /* Menyesuaikan dengan lebar teks */
+}
+
 
 .info-panel img {
   width: 80px;
@@ -403,11 +420,11 @@
     padding: 0;
 }
 
-/* .container {
+.container {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
-} */
+}
 
 h1 {
     text-align: center;
@@ -670,7 +687,7 @@ body { background: var(--white); }
   background: var(--gunmetal);
 }
 
-.header-top .container {
+.header-top .container2 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-items: flex-start;
@@ -710,7 +727,7 @@ body { background: var(--white); }
 
 .header-bottom { border-bottom: 1px solid hsla(0, 0%, 100%, 0.1); }
 
-.header-bottom .container {
+.header-bottom .container2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1301,7 +1318,7 @@ address {
    * REUSED STYLE
    */
 
-  .container {
+  .container2 {
     max-width: 580px;
     margin-inline: auto;
   }
@@ -1391,7 +1408,7 @@ address {
    * FOOTER
    */
 
-  .footer .container {
+  .footer .container2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 30px;
@@ -1437,7 +1454,7 @@ address {
    * REUSED STYLE
    */
 
-  .container { max-width: 800px; }
+  .container2 { max-width: 800px; }
 
   .section-text {
     max-width: 60ch;
@@ -1529,7 +1546,7 @@ address {
    * CTA
    */
 
-  .cta .container {
+  .cta .container2 {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1572,7 +1589,7 @@ address {
    * REUSED STYLE
    */
 
-  .container { max-width: 1050px; }
+  .container2 { max-width: 1050px; }
 
 
 
@@ -1601,7 +1618,7 @@ address {
     transition: var(--transition);
   }
 
-  .header-bottom .container { padding-block: 0; }
+  .header-bottom .container2 { padding-block: 0; }
 
   .header .navbar { all: unset; }
 
@@ -1639,7 +1656,7 @@ address {
    * HERO
    */
 
-  .hero .container { max-width: 740px; }
+  .hero .container2 { max-width: 740px; }
 
 
 
@@ -1687,7 +1704,7 @@ address {
    * FOOTER
    */
 
-  .footer-top .container {
+  .footer-top .container2 {
     grid-template-columns: repeat(3, 1fr);
     gap: 50px;
   }
@@ -1730,6 +1747,6 @@ address {
    * REUSED STYLE
    */
 
-  .container { max-width: 1180px; }
+  .container2 { max-width: 1180px; }
 
 }

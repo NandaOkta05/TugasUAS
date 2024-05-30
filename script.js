@@ -47,3 +47,33 @@ document.addEventListener("DOMContentLoaded", function() {
     changeBackgroundImage(); // Panggil fungsi untuk menetapkan gambar pertama kali
   });
   
+  const header = document.querySelector("[data-header]");
+const goTopBtn = document.querySelector("[data-go-top]");
+
+window.addEventListener("scroll", function () {
+  if (window.scrollY >= 200) {
+    header.classList.add("active");
+    goTopBtn.classList.add("active");
+  } else {
+    header.classList.remove("active");
+    goTopBtn.classList.remove("active");
+  }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Sembunyikan gambar pada elemen dengan class 'hidden' secara default
+  const hiddenImages = document.querySelectorAll(".hidden");
+  hiddenImages.forEach((image) => {
+    image.style.display = "none";
+  });
+
+  // Tambahkan event listener pada tombol 'moredestination'
+  const moreDestinationBtn = document.getElementById("more");
+  moreDestinationBtn.addEventListener("click", function () {
+    hiddenImages.forEach((image) => {
+      image.style.display = "block";
+    });
+    // Sembunyikan tombol 'moredestination' setelah ditekan
+    moreDestinationBtn.style.display = "none";
+  });
+});

@@ -1,6 +1,6 @@
 <?php
 // Include file koneksi database
-include 'koneksi.php';
+include 'koneksi2.php';
 
 // Query untuk mendapatkan jumlah barang
 $queryBarang = "SELECT COUNT(*) AS total_barang FROM barang";
@@ -42,6 +42,9 @@ mysqli_close($conn);
     <link rel="stylesheet" href="./quixlab-master/plugins/chartist-plugin-tooltips/css/chartist-plugin-tooltip.css">
     <!-- Custom Stylesheet -->
     <link href="./quixlab-master/css/style.css" rel="stylesheet">
+
+    <!-- data tables -->
+    <link rel="stylesheet" href="./quixlab-master/plugins/datatables">
 
 </head>
 <body>

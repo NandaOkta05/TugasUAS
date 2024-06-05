@@ -34,12 +34,9 @@
         <ul class="metismenu" id="menu">
             <li class="nav-label">Dashboard</li>
             <li>
-                <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                <a class="has-arrow" href="dashboard.php" aria-expanded="false">
                     <i class="icon-speedometer menu-icon"></i><span class="nav-text">Dashboard</span>
                 </a>
-                <ul aria-expanded="false">
-                    <li><a href="dashboard.php">Dashboard</a></li>
-                </ul>
             </li>
             <li class="nav-label">Menu</li>
             <li>
@@ -47,8 +44,7 @@
                     <i class="icon-basket menu-icon"></i><span class="nav-text">Barang</span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a href="./barang-list.html">Daftar Barang</a></li>
-                    <li><a href="./barang-add.html">Tambah Barang</a></li>
+                    <li><a href="./barang-list.php">Daftar Barang</a></li>
                 </ul>
             </li>
             <li>
@@ -70,8 +66,7 @@
                     <i class="icon-people menu-icon"></i><span class="nav-text">Pelanggan</span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a href="./pelanggan-list.html">Daftar Pelanggan</a></li>
-                    <li><a href="./pelanggan-add.html">Tambah Pelanggan</a></li>
+                    <li><a href="./pelanggan-list3.php">Daftar Pelanggan</a></li>
                 </ul>
             </li>
             <li>
@@ -85,7 +80,6 @@
                 </a>
                 <ul aria-expanded="false">
                     <li><a href="./penjualan-list.html">Daftar Penjualan</a></li>
-                    <li><a href="./penjualan-add.html">Tambah Penjualan</a></li>
                 </ul>
             </li>
         </ul>

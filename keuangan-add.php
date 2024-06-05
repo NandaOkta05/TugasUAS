@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Tambah Pelanggan</title>
+    <title>Tambah Keuangan</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
     <!-- Custom Stylesheet -->
@@ -16,35 +16,31 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Form Pelanggan</h4>
+                    <h4 class="card-title">Form Keuangan</h4>
                     <p class="text-muted m-b-15 f-s-12"></p>
                     <div class="basic-form">
-                        <form action="pelanggan-list3.php" method="POST">
+                        <form action="keuangan-list.php" method="POST">
                             <div class="form-group">
-                                <label for="nama">Nama:</label>
-                                <input type="text" class="form-control" id="nama" name="nama" required>
+                                <label for="tanggal">Tanggal:</label>
+                                <input type="date" class="form-control" id="tanggal" name="tanggal" required>
                             </div>
                             <div class="form-group">
-                                <label for="email">Email:</label>
-                                <input type="email" class="form-control" id="email" name="email" required>
+                                <label for="keterangan">Keterangan:</label>
+                                <textarea class="form-control" id="keterangan" name="keterangan" required></textarea>
                             </div>
                             <div class="form-group">
-                                <label for="nohp">No. HP:</label>
-                                <input type="text" class="form-control" id="nohp" name="nohp" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="alamat">Alamat:</label>
-                                <textarea class="form-control" id="alamat" name="alamat" required></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="jenis_kelamin">Jenis Kelamin:</label>
-                                <select class="form-control" id="jenis_kelamin" name="jenis_kelamin" required>
-                                    <option value="Laki-laki">Laki-laki</option>
-                                    <option value="Perempuan">Perempuan</option>
+                                <label for="jenis">Jenis:</label>
+                                <select class="form-control" id="jenis" name="jenis" required>
+                                    <option value="Pemasukan">Pemasukan</option>
+                                    <option value="Pengeluaran">Pengeluaran</option>
                                 </select>
                             </div>
+                            <div class="form-group">
+                                <label for="jumlah">Jumlah:</label>
+                                <input type="number" class="form-control" id="jumlah" name="jumlah" required>
+                            </div>
                             <button type="submit" name="tambah" class="btn btn-primary">Simpan</button>
-                            <a href="pelanggan-list3.php" class="btn btn-secondary">Kembali</a>
+                            <a href="keuangan-list.php" class="btn btn-secondary">Kembali</a>
                         </form>
                     </div>
                 </div>

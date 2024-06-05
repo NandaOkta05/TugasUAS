@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>NOMINA</title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="./quixlab-master/images/favicon.png">
+    <link rel="icon" type="image/jpg" sizes="16x16" href="./img/man.png">
     <!-- Pignose Calender -->
     <link href="./quixlab-master/plugins/pg-calendar/css/pignose.calendar.min.css" rel="stylesheet">
     <!-- Chartist -->
@@ -23,7 +23,7 @@
             <b class="logo-abbr"><img src="./quixlab-master/images/logo.png" alt=""> </b>
                 <span class="logo-compact"><img src="./quixlab-master/images/logo-compact.png" alt=""></span>
                     <span class="brand-title">
-                        <img src="./quixlab-master/images/logo-text.png" alt="">
+                        <img src="" alt="">
                     </span>
                 </span>
         </a>
@@ -52,8 +52,7 @@
                     <i class="icon-wallet menu-icon"></i><span class="nav-text">Keuangan</span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a href="./keuangan-report.html">Laporan Keuangan</a></li>
-                    <li><a href="./keuangan-manage.html">Kelola Keuangan</a></li>
+                    <li><a href="./keuangan-list.php">Klelola Keuangan</a></li>
                 </ul>
             </li>
             <li>

@@ -2,6 +2,16 @@
 // Include the file containing the database connection and functions
 include 'pelanggan.php';
 
+// Handle delete request
+if (isset($_GET['hapus'])) {
+    $id_pelanggan = $_GET['hapus'];
+    if (hapusPelanggan($id_pelanggan)) {
+        echo "Data keuangan berhasil dihapus.";
+    } else {
+        echo "Gagal menghapus data keuangan.";
+    }
+}
+
 // Handle form submission
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['tambah'])) {
     $id_pelanggan = $_POST['id_pelanggan'];
@@ -64,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['tambah'])) {
                                         echo "<td>" . $p['jenis_kelamin'] . "</td>";
                                         echo "<td>";
                                         echo "<a href='pelanggan-edit2.php?id=" . $p['id_Pelanggan'] . "' class='btn btn-sm btn-warning'>Edit</a> ";
-                                        echo "<a href='pelanggan-list.php?hapus=" . $p['id_Pelanggan'] . "' class='btn btn-sm btn-danger' onclick='return confirm(\"Apakah Anda yakin ingin menghapus pelanggan ini?\")'>Hapus</a>";
+                                        echo "<a href='pelanggan-list3.php?hapus=" . $p['id_Pelanggan'] . "' class='btn btn-sm btn-danger' onclick='return confirm(\"Apakah Anda yakin ingin menghapus pelanggan ini?\")'>Hapus</a>";
                                         echo "</td>";
                                         echo "</tr>";
                                     }

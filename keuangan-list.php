@@ -1,11 +1,11 @@
 <?php
 // Include the file containing the database connection and functions
-include 'barang.php';
+include 'keuangan.php';
 
 // Handle delete request
 if (isset($_GET['hapus'])) {
-    $id_barang = $_GET['hapus'];
-    if (hapusBarang($id_barang)) {
+    $id_keuangan = $_GET['hapus'];
+    if (hapusKeuangan($id_keuangan)) {
         echo "Data keuangan berhasil dihapus.";
     } else {
         echo "Gagal menghapus data keuangan.";
@@ -14,13 +14,12 @@ if (isset($_GET['hapus'])) {
 
 // Handle form submission
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['tambah'])) {
-    $id_barang = $_POST['id_barang'];
-    $nama_barang = $_POST['nama_barang'];
-    $kode_barang = $_POST['kode_barang'];
-    $harga = $_POST['harga'];
-    $stok = $_POST['stok'];
+    $tanggal = $_POST['tanggal'];
+    $keterangan = $_POST['keterangan'];
+    $jenis = $_POST['jenis'];
+    $jumlah = $_POST['jumlah'];
 
-    tambahBarang($nama_barang, $kode_barang, $harga, $stok);
+    tambahKeuangan($tanggal, $keterangan, $jenis, $jumlah);
 }
 ?>
 <!DOCTYPE html>
@@ -30,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['tambah'])) {
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Daftar Barang</title>
+    <title>Daftar Keuangan</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
     <!-- Bootstrap CSS -->
@@ -47,34 +46,34 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['tambah'])) {
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">List Data Barang</h4>
-                            <!-- Add button for adding new items -->
-                            <a href="barang-add.php" class="btn btn-primary mb-3">Tambah</a>
+                            <h4 class="card-title">List Data Keuangan</h4>
+                            <!-- Add button for adding new financial records -->
+                            <a href="keuangan-add.php" class="btn btn-primary mb-3">Tambah</a>
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered zero-configuration">
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Nama Barang</th>
-                                            <th>Kode Barang</th>
-                                            <th>Harga</th>
-                                            <th>Stok</th>
+                                            <th>Tanggal</th>
+                                            <th>Keterangan</th>
+                                            <th>Jenis</th>
+                                            <th>Jumlah</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
-                                        $barang = ambilBarang();
-                                        foreach ($barang as $b) {
+                                        $keuangan = ambilKeuangan();
+                                        foreach ($keuangan as $k) {
                                             echo "<tr>";
-                                            echo "<td>" . $b['id_barang'] . "</td>";
-                                            echo "<td>" . $b['nama_barang'] . "</td>";
-                                            echo "<td>" . $b['kode_barang'] . "</td>";
-                                            echo "<td>" . $b['harga'] . "</td>";
-                                            echo "<td>" . $b['stok'] . "</td>";
+                                            echo "<td>" . $k['id_keuangan'] . "</td>";
+                                            echo "<td>" . $k['tanggal'] . "</td>";
+                                            echo "<td>" . $k['keterangan'] . "</td>";
+                                            echo "<td>" . $k['jenis'] . "</td>";
+                                            echo "<td>" . $k['jumlah'] . "</td>";
                                             echo "<td>";
-                                            echo "<a href='barang-edit.php?id=" . $b['id_barang'] . "' class='btn btn-sm btn-warning'>Edit</a> ";
-                                            echo "<a href='barang-list.php?hapus=" . $b['id_barang'] . "' class='btn btn-sm btn-danger' onclick='return confirm(\"Apakah Anda yakin ingin menghapus barang ini?\")'>Hapus</a>";
+                                            echo "<a href='keuangan-edit.php?id=" . $k['id_keuangan'] . "' class='btn btn-sm btn-warning'>Edit</a> ";
+                                            echo "<a href='keuangan-list.php?hapus=" . $k['id_keuangan'] . "' class='btn btn-sm btn-danger' onclick='return confirm(\"Apakah Anda yakin ingin menghapus data keuangan ini?\")'>Hapus</a>";
                                             echo "</td>";
                                             echo "</tr>";
                                         }

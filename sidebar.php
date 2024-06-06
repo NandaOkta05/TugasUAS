@@ -40,45 +40,45 @@
             </li>
             <li class="nav-label">Menu</li>
             <li>
-                <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                <a class="has-arrow" href="./barang-list.php" aria-expanded="false">
                     <i class="icon-basket menu-icon"></i><span class="nav-text">Barang</span>
                 </a>
-                <ul aria-expanded="false">
+                <!-- <ul aria-expanded="false">
                     <li><a href="./barang-list.php">Daftar Barang</a></li>
-                </ul>
+                </ul> -->
             </li>
             <li>
-                <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                <a class="has-arrow" href="./keuangan-list.php" aria-expanded="false">
                     <i class="icon-wallet menu-icon"></i><span class="nav-text">Keuangan</span>
                 </a>
-                <ul aria-expanded="false">
+                <!-- <ul aria-expanded="false">
                     <li><a href="./keuangan-list.php">Klelola Keuangan</a></li>
-                </ul>
+                </ul> -->
             </li>
             <li>
-                <a href="./kritiksaran.html" aria-expanded="false">
+                <a href="./kritiksaran-list.php" aria-expanded="false">
                     <i class="icon-envelope menu-icon"></i><span class="nav-text">Kritik & Saran</span>
                 </a>
             </li>
             <li>
-                <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                <a class="has-arrow" href="./pelanggan-list3.php" aria-expanded="false">
                     <i class="icon-people menu-icon"></i><span class="nav-text">Pelanggan</span>
                 </a>
-                <ul aria-expanded="false">
+                <!-- <ul aria-expanded="false">
                     <li><a href="./pelanggan-list3.php">Daftar Pelanggan</a></li>
-                </ul>
+                </ul> -->
             </li>
             <li>
-                <a href="./ulasan.html" aria-expanded="false">
+                <a href="./ulasan-list.php" aria-expanded="false">
                     <i class="icon-star menu-icon"></i><span class="nav-text">Ulasan</span>
                 </a>
             </li>
             <li>
-                <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                <a class="has-arrow" href="./penjualan-list.php" aria-expanded="false">
                     <i class="icon-handbag menu-icon"></i><span class="nav-text">Penjualan</span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a href="./penjualan-list.html">Daftar Penjualan</a></li>
+                    <li><a href="./penjualan-list.php">Daftar Penjualan</a></li>
                 </ul>
             </li>
         </ul>

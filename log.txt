@@ -1,0 +1,20 @@
+Array
+(
+    [totalBayar] => 600
+)
+Total Bayar: 600
+Array
+(
+    [totalBayar] => 2
+)
+Total Bayar: 2
+Array
+(
+    [totalBayar] => 34
+)
+Total Bayar: 34
+Array
+(
+    [totalBayar] => 0
+)
+Total Bayar: 0

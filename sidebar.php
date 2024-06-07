@@ -74,12 +74,20 @@
                 </a>
             </li>
             <li>
-                <a class="has-arrow" href="./penjualan-list.php" aria-expanded="false">
+                <a class="has-arrow" href="./modal.php" aria-expanded="false">
                     <i class="icon-handbag menu-icon"></i><span class="nav-text">Penjualan</span>
                 </a>
                 <ul aria-expanded="false">
                     <li><a href="./penjualan-list.php">Daftar Penjualan</a></li>
                 </ul>
+                <ul aria-expanded="false">
+                    <li><a href="./rekapPembayaran.php">Rekap pembayaran</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="./logout.php" aria-expanded="false">
+                    <i class="icon-logout"></i><span class="nav-text">Logout</span>
+                </a>
             </li>
         </ul>
     </div>

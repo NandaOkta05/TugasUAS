@@ -1,4 +1,8 @@
 <?php
+
+
+
+
 // Include file koneksi database
 include 'koneksi2.php';
 
@@ -92,8 +96,7 @@ mysqli_close($conn);
                 <div class="card-body">
                     <h3 class="card-title text-white">Total Penjualan</h3>
                     <div class="d-inline-block">
-                        <h2 class="text-white">99%</h2>
-                        <p class="text-white mb-0">Jan - March 2019</p>
+                        <h2 class="text-white"><?php echo $total_pelanggan;?></h2>
                     </div>
                     <span class="float-right display-5 opacity-5"><i class="fa fa-heart"></i></span>
                 </div>

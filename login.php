@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Rosella - Login</title>
+    <title>Nomina - Login</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
     <link href="quixlab-master/css/style.css" rel="stylesheet">
@@ -29,16 +29,20 @@
                     <div class="form-input-content">
                         <div class="card login-form mb-0">
                             <div class="card-body pt-5">
-                                <a class="text-center" href="index.html"> <h4>Rosella</h4></a>
+                                <!-- Tampilkan pesan error jika ada -->
+                                <?php if (isset($_GET["error"])) : ?>
+                                    <p style="color: red;">Email atau password salah. Silakan coba lagi.</p>
+                                <?php endif; ?>
+                                <a class="text-center" href="index.php"> <h4>Login To Nomina</h4></a>
         
-                                <form class="mt-5 mb-5 login-input" method="POST" action="authenticate.php">
+                                <form class="mt-5 mb-5 login-input" method="POST" action="proses_login.php">
                                     <div class="form-group">
                                         <input type="email" name="email" class="form-control" placeholder="Email" required>
                                     </div>
                                     <div class="form-group">
                                         <input type="password" name="password" class="form-control" placeholder="Password" required>
                                     </div>
-                                    <button type="submit" class="btn login-form__btn submit w-100">Sign In</button>
+                                    <button type="submit" class="btn login-form__btn submit w-100">Login</button>
                                 </form>
                                 <p class="mt-5 login-form__footer">Don't have an account? <a href="page-register.php" class="text-primary">Sign Up</a> now</p>
                             </div>

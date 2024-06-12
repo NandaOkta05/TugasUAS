@@ -82,3 +82,9 @@ Array
     [totalBayar] => 3600000
 )
 Total Bayar: 3600000
+Array
+(
+    [namaPembeli] => Hans
+    [totalBayar] => 150000
+)
+Total Bayar: 150000

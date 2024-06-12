@@ -26,11 +26,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result->num_rows == 1) {
         // Login berhasil, simpan informasi pengguna dalam sesi
         $row = $result->fetch_assoc();
-        $_SESSION["user_id"] = $row["id"];
+        $_SESSION["user_id"] = $row["id_users"];
+        $_SESSION["user_nama"] = $row["nama"];
         $_SESSION["user_email"] = $row["email"];
-        
-        // Redirect ke halaman dashboard
-        header("Location: dashboard.php");
+        $_SESSION["user_level"] = $row["level"];
+        $_SESSION["user_address"] = $row["address"];
+        $_SESSION["user_gender"] = $row["gender"];
+
+        // Redirect berdasarkan level pengguna
+        if ($row["level"] == "admin") {
+            header("Location: dashboard.php");
+        } else {
+            header("Location: dashboard-pelanggan.php");
+        }
         exit();
     } else {
         // Login gagal, redirect kembali ke halaman login dengan pesan error

@@ -1,7 +1,13 @@
 <?php
 // Include file koneksi database
 include 'koneksi2.php';
+session_start();
 
+if (!isset($_SESSION["user_email"])) {
+    // Jika tidak ada sesi user_email, redirect ke halaman login
+    header("Location: login.php");
+    exit();
+}
 // Query untuk mendapatkan jumlah barang
 $queryBarang = "SELECT COUNT(*) AS total_barang FROM barang";
 $result = mysqli_query($conn, $queryBarang);

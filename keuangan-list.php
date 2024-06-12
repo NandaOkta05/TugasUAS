@@ -21,6 +21,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['tambah'])) {
 
     tambahKeuangan($tanggal, $keterangan, $jenis, $jumlah);
 }
+
+// Ambil data keuangan dari database
+$keuangan = ambilKeuangan();
+$counter = 1; // Variabel untuk nomor urut
+$saldo = 0; // Inisialisasi saldo
+
+// Hitung saldo berdasarkan data yang ada
+foreach ($keuangan as $k) {
+    if ($k['jenis'] == 'Pemasukan') {
+        $saldo += $k['jumlah'];
+    } elseif ($k['jenis'] == 'Pengeluaran') {
+        $saldo -= $k['jumlah'];
+    }
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,9 +61,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['tambah'])) {
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
                             <h4 class="card-title">List Data Keuangan</h4>
                             <!-- Add button for adding new financial records -->
                             <a href="keuangan-add.php" class="btn btn-primary mb-3">Tambah</a>
+                            </div>
+                            <div class="text-right mb-3">
+                            <h5 class="m-0">Saldo Sekarang: <?php echo $saldo; ?></h5>
+                            </div>
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered zero-configuration">
                                     <thead>
@@ -63,9 +83,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['tambah'])) {
                                     </thead>
                                     <tbody>
                                     <?php
-                                    $keuangan = ambilKeuangan();
-                                    $counter = 1; // Variabel untuk nomor urut
-
                                     foreach ($keuangan as $k) {
                                         echo "<tr>";
                                         echo "<td>" . $counter . "</td>"; // Menampilkan nomor urut
@@ -86,7 +103,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['tambah'])) {
                                 </table>
                             </div>
                         </div>
-                    </div>                        
+                    </div>
+                    <!-- Saldo section below the table -->
+                    
                 </div>
             </div>
         </div>

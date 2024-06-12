@@ -33,10 +33,10 @@ $gender = $_POST['gender'];
         exit();
     } else {
         // Email belum terdaftar, lakukan proses registrasi
-        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+        // $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
         // Query untuk menambahkan pengguna baru ke database
-        $register_query = "INSERT INTO users (nama, email, password, level, nohp, address, gender) VALUES ('$nama','$email', '$hashed_password', 'customer','$nohp','$address', '$gender')";
+        $register_query = "INSERT INTO users (nama, email, password, level, nohp, address, gender) VALUES ('$nama','$email', '$password', 'customer','$nohp','$address', '$gender')";
         if ($conn->query($register_query) === TRUE) {
             // Registrasi berhasil, simpan informasi pengguna dalam sesi
             $user_id = $conn->insert_id;

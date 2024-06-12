@@ -85,20 +85,6 @@
           </div>
         </div>
       </div>
-      <!-- Panel Informasi -->
-
-     <!-- Working Place -->
-<!-- <div class="row working-space">
-  <div class="col-lg-5">
-      <h3>Melayani <span>Pembeli</span> adalah tugas <span>kami</span></h3>
-      <p>Kami menyediakan berbagai macam gelang dengan desain unik dan kualitas terbaik yang dibuat oleh pengrajin lokal. Setiap pembelian mendukung usaha kecil dan memperkuat komunitas kita.</p>
-  </div>
-  <div class="col-lg-6">
-      <br />
-      <img src="img/workshop.jpg" id="" class="img-fluid rounded" alt="Gelang UMKM" />
-  </div>
-</div> -->
-<!-- Working Place -->
 
       <!-- Produk  -->
       <div class="row manfaat justify-content-center p-5" id="produk">

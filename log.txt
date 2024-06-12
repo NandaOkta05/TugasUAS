@@ -76,3 +76,9 @@ Array
     [totalBayar] => 50
 )
 Total Bayar: 50
+Array
+(
+    [namaPembeli] => Naufal
+    [totalBayar] => 3600000
+)
+Total Bayar: 3600000

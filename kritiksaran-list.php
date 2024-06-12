@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['tambah'])) {
                                     <table class="table table-striped table-bordered zero-configuration">
                                         <thead>
                                             <tr>
-                                            <th>ID</th>
+                                            <th>No</th>
                                             <th>Pelayanan</th>
                                             <th>Tempat</th>
                                             <th>Saran</th>
@@ -57,20 +57,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['tambah'])) {
                                         </thead>
                                         <tbody>
                                         <?php
-                                    $kritiksaran = ambilKritikSaran();
-                                    foreach ($kritiksaran as $ks) {
-                                        echo "<tr>";
-                                        echo "<td>" . $ks['id_KritikSaran'] . "</td>";
-                                        echo "<td>" . $ks['pelayanan'] . "</td>";
-                                        echo "<td>" . $ks['tempat'] . "</td>";
-                                        echo "<td>" . $ks['saran'] . "</td>";
-                                        echo "<td>";
-                                        echo "<a href='kritiksaran-edit.php?id=" . $ks['id_KritikSaran'] . "' class='btn btn-sm btn-warning'>Edit</a> ";
-                                        echo "<a href='kritiksaran-list.php?hapus=" . $ks['id_KritikSaran'] . "' class='btn btn-sm btn-danger' onclick='return confirm(\"Apakah Anda yakin ingin menghapus kritik dan saran ini?\")'>Hapus</a>";
-                                        echo "</td>";
-                                        echo "</tr>";
-                                    }
-                                    ?>
+                                            $kritiksaran = ambilKritikSaran();
+                                            $counter = 1; // Variabel untuk nomor urut
+
+                                            foreach ($kritiksaran as $ks) {
+                                                echo "<tr>";
+                                                echo "<td>" . $counter . "</td>"; // Menampilkan nomor urut
+                                                echo "<td>" . $ks['pelayanan'] . "</td>";
+                                                echo "<td>" . $ks['tempat'] . "</td>";
+                                                echo "<td>" . $ks['saran'] . "</td>";
+                                                echo "<td>";
+                                                echo "<a href='kritiksaran-edit.php?id=" . $ks['id_KritikSaran'] . "' class='btn btn-sm btn-warning'>Edit</a> ";
+                                                echo "<a href='kritiksaran-list.php?hapus=" . $ks['id_KritikSaran'] . "' class='btn btn-sm btn-danger' onclick='return confirm(\"Apakah Anda yakin ingin menghapus kritik dan saran ini?\")'>Hapus</a>";
+                                                echo "</td>";
+                                                echo "</tr>";
+                                                $counter++; // Increment nomor urut
+                                            }
+                                            ?>
+
                                     </table>
                                 </div>
                             </div>

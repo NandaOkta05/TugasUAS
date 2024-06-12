@@ -12,6 +12,13 @@ try {
     die("Could not connect to the database $db :" . $e->getMessage());
 }
 
+if (!function_exists('ambilUlasan')) {
+    function ambilUlasan() {
+        global $pdo;
+        $stmt = $pdo->query("SELECT nama_barang, rating, ulasan FROM ulasan");
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+}
 function ambilUlasan() {
     global $pdo;
     $stmt = $pdo->query("SELECT * FROM ulasan");

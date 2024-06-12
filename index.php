@@ -14,8 +14,11 @@
     <!-- fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Viga&display=swap" rel="stylesheet" />
 
+    <!-- Alert -->
+    <link href="./quixlab-master/plugins/sweetalert/css/sweetalert.css" rel="stylesheet">
     <!-- my css -->
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <link href="./quixlab-master/css/style.css" rel="stylesheet">
 
     <title>NOMINA</title>
   </head>
@@ -35,6 +38,7 @@
             <a class="nav-link" href="#aboutUs">About Us</a>
             <a class="nav-item nav-link" href="#produk">Product</a>
             <a class="nav-link" href="#review">Review</a>
+            <a class="nav-link" href="#review">Kritik & Saran</a>
             <a class="tombol btn" id="btn" href="https://wa.link/53sbnu">Contact Us</a>
            <a class="nav-item nav-link" href="login.php">Login</a>
           </div>
@@ -151,7 +155,177 @@
           <h5>"Kami percaya bahwa setiap gelang yang kami buat memiliki cerita dan makna tersendiri. Dengan dedikasi dan cinta, kami menciptakan perhiasan yang indah dan bermakna."</h5>
       </div>
   </div>
-  <section class="popular" id="destination">
+
+  <style>
+    .rating {
+  display: flex;
+  flex-direction: row;
+}
+
+.rating input {
+  display: none;
+}
+
+.rating label {
+  font-size: 2em;
+  padding: 0.3em;
+  color: #ccc;
+  cursor: pointer;
+}
+
+.rating input:checked ~ label {
+  color: #ffc107; /* warna bintang yang terisi */
+}
+
+  </style>
+
+
+
+<section class="popular" id="destination">
+    <!-- Button untuk Mengisi Ulasan -->
+    <div class="text-center">
+        <button class="btn btn-primary" data-toggle="modal" data-target="#reviewModal">Isi Ulasan</button>
+    </div>
+    <?php
+    // Include file untuk koneksi dan fungsi-fungsi terkait
+    include 'ulasan.php';
+    ?>
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Tangkap data dari formulir
+        $nama = $_POST["nama"];
+        $produk = $_POST["produk"];
+        $rating = $_POST["rating"];
+        $ulasan = $_POST["ulasan"];
+
+        // Tambahkan ulasan ke database menggunakan fungsi tambahUlasan dari file ulasan.php
+        tambahUlasan($produk, $rating, $ulasan);
+    }
+    ?>
+
+    <!-- Modal untuk Form Ulasan -->
+    <div class="modal fade" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="reviewModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="reviewModalLabel">Form Ulasan</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="ulasanForm" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                        <div class="form-group">
+                            <label for="nama">Nama</label>
+                            <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan Nama Anda">
+                        </div>
+                        <div class="form-group">
+                            <label for="produk">Nama Produk</label>
+                            <select class="form-control" id="produk" name="produk">
+                                <?php
+                                // Database connection
+                                $host = 'localhost';
+                                $db = 'nomina';
+                                $user = 'root';
+                                $pass = '';
+
+                                try {
+                                    $pdo = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
+                                    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                                    $stmt = $pdo->query("SELECT nama_barang FROM barang");
+                                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                                        echo '<option value="' . $row["nama_barang"] . '">' . $row["nama_barang"] . '</option>';
+                                    }
+                                } catch (PDOException $e) {
+                                    die("Could not connect to the database $db :" . $e->getMessage());
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="rating">Rating</label>
+                            <div class="rating">
+                                <input type="radio" id="star5" name="rating" value="5" />
+                                <label for="star5" title="sangat baik">&#9733;</label>
+                                <input type="radio" id="star4" name="rating" value="4" />
+                                <label for="star4" title="baik">&#9733;</label>
+                                <input type="radio" id="star3" name="rating" value="3" />
+                                <label for="star3" title="sedang">&#9733;</label>
+                                <input type="radio" id="star2" name="rating" value="2" />
+                                <label for="star2" title="buruk">&#9733;</label>
+                                <input type="radio" id="star1" name="rating" value="1" />
+                                <label for="star1" title="sangat buruk">&#9733;</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="ulasan">Ulasan</label>
+                            <textarea class="form-control" id="ulasan" name="ulasan" rows="3" placeholder="Tulis Ulasan Anda"></textarea>
+                        </div>
+                        <!-- <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                            <button type="submit" class="btn btn-primary">Kirim Ulasan</button>
+                        </div> -->
+                        <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-content">
+                                    <div class="sweetalert m-t-30">
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                                        <button type="submit" class="btn btn-primary">Kirim Ulasan</button>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- jQuery dan SweetAlert -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script src="./quixlab-master/plugins/sweetalert/js/sweetalert.min.js"></script>
+<script src="./quixlab-master/plugins/sweetalert/js/sweetalert.init.js"></script>
+
+<!-- Script untuk menampilkan SweetAlert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<!-- <script>
+    $(document).ready(function() {
+        // Mengaktifkan SweetAlert saat tombol Kirim Ulasan diklik
+        $('#submitUlasan').click(function(e) {
+            e.preventDefault(); // Mencegah pengiriman form secara langsung
+
+            // Menampilkan SweetAlert
+            Swal.fire({
+                title: 'Success!',
+                text: 'Ulasan berhasil dikirim.',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Mengirimkan form jika SweetAlert dikonfirmasi
+                    $('#ulasanForm').submit();
+                }
+            });
+        });
+    });
+</script> -->
+
+    
+ <!-- jQuery and Bootstrap Bundle (includes Popper) -->
+ <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <!-- SweetAlert JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+
+
+
+
     <div class="container2">
       <!-- <p class="section-subtitle">Uncover place</p>
 
@@ -352,6 +526,8 @@
       <button class="btn2 btn-primary2" id="more">More destintion</button>
     </div>
   </section>
+
+
   <!-- <section class="popular" id="destination">
     <div class="container">
       </div>
@@ -415,12 +591,15 @@
       <!-- About Us -->
 
       <!-- footer -->
-      <div class="container row footer">
+      <!-- <div class="container row footer">
         <div class="col text-center">
           <p>Created by si bocil nanda</p>
         </div>
       </div>
-    </div>
+    </div> -->
+    <?php
+    include 'footer.php';
+    ?>
     <!-- end container -->
 
     <!-- Optional JavaScript -->
@@ -430,25 +609,5 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
  
     </body>
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const cards = document.querySelectorAll('.card'); // Pilih semua elemen dengan class 'card'
-    let currentIndex = 0; // Inisialisasi indeks gambar saat ini
-
-    function showNextCard() {
-      // Sembunyikan kartu saat ini
-      cards[currentIndex].style.display = 'none';
-
-      // Perbarui indeks untuk menampilkan kartu berikutnya
-      currentIndex = (currentIndex + 3) % cards.length;
-
-      // Tampilkan kartu berikutnya
-      cards[currentIndex].style.display = 'block';
-    }
-
-    // Atur interval untuk memanggil fungsi showNextCard setiap 5 detik
-    setInterval(showNextCard, 5000);
-  });
-</script>
   </body>
 </html>

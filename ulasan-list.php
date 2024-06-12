@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['tambah'])) {
                                     <table class="table table-striped table-bordered zero-configuration">
                                         <thead>
                                             <tr>
-                                            <th>ID</th>
+                                            <th>No</th>
                                             <th>Nama Produk</th>
                                             <th>Rating</th>
                                             <th>Ulasan</th>
@@ -59,20 +59,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['tambah'])) {
                                         </thead>
                                         <tbody>
                                         <?php
-                                    $ulasan = ambilUlasan();
-                                    foreach ($ulasan as $u) {
-                                        echo "<tr>";
-                                        echo "<td>" . $u['id_Ulasan'] . "</td>";
-                                        echo "<td>" . $u['nama_barang'] . "</td>";
-                                        echo "<td>" . $u['rating'] . "</td>";
-                                        echo "<td>" . $u['ulasan'] . "</td>";
-                                        echo "<td>";
-                                        echo "<a href='ulasan-edit.php?id=" . $u['id_Ulasan'] . "' class='btn btn-sm btn-warning'>Edit</a> ";
-                                        echo "<a href='ulasan-list.php?hapus=" . $u['id_Ulasan'] . "' class='btn btn-sm btn-danger' onclick='return confirm(\"Apakah Anda yakin ingin menghapus ulasan ini?\")'>Hapus</a>";
-                                        echo "</td>";
-                                        echo "</tr>";
-                                    }
-                                    ?>
+                                            $ulasan = ambilUlasan();
+                                            $counter = 1; // Variabel untuk nomor urut
+
+                                            foreach ($ulasan as $u) {
+                                                echo "<tr>";
+                                                echo "<td>" . $counter . "</td>"; // Menampilkan nomor urut
+                                                echo "<td>" . $u['nama_barang'] . "</td>";
+                                                echo "<td>" . $u['rating'] . "</td>";
+                                                echo "<td>" . $u['ulasan'] . "</td>";
+                                                echo "<td>";
+                                                echo "<a href='ulasan-edit.php?id=" . $u['id_Ulasan'] . "' class='btn btn-sm btn-warning'>Edit</a> ";
+                                                echo "<a href='ulasan-list.php?hapus=" . $u['id_Ulasan'] . "' class='btn btn-sm btn-danger' onclick='return confirm(\"Apakah Anda yakin ingin menghapus ulasan ini?\")'>Hapus</a>";
+                                                echo "</td>";
+                                                echo "</tr>";
+                                                $counter++; // Increment nomor urut
+                                            }
+                                            ?>
+
                                             
                                     </table>
                                 </div>

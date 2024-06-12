@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['tambah'])) {
                                     <table class="table table-striped table-bordered zero-configuration">
                                         <thead>
                                             <tr>
-                                            <th>ID</th>
+                                            <th>No</th>
                                             <th>Nama</th>
                                             <th>Email</th>
                                             <th>No. HP</th>
@@ -63,22 +63,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['tambah'])) {
                                         </thead>
                                         <tbody>
                                         <?php
-                                    $pelanggan = ambilPelanggan();
-                                    foreach ($pelanggan as $p) {
-                                        echo "<tr>";
-                                        echo "<td>" . $p['id_Pelanggan'] . "</td>";
-                                        echo "<td>" . $p['nama'] . "</td>";
-                                        echo "<td>" . $p['email'] . "</td>";
-                                        echo "<td>" . $p['nohp'] . "</td>";
-                                        echo "<td>" . $p['alamat'] . "</td>";
-                                        echo "<td>" . $p['jenis_kelamin'] . "</td>";
-                                        echo "<td>";
-                                        echo "<a href='pelanggan-edit2.php?id=" . $p['id_Pelanggan'] . "' class='btn btn-sm btn-warning'>Edit</a> ";
-                                        echo "<a href='pelanggan-list3.php?hapus=" . $p['id_Pelanggan'] . "' class='btn btn-sm btn-danger' onclick='return confirm(\"Apakah Anda yakin ingin menghapus pelanggan ini?\")'>Hapus</a>";
-                                        echo "</td>";
-                                        echo "</tr>";
-                                    }
-                                    ?>
+                                            $pelanggan = ambilPelanggan();
+                                            $counter = 1; // Variabel untuk nomor urut
+
+                                            foreach ($pelanggan as $p) {
+                                                echo "<tr>";
+                                                echo "<td>" . $counter . "</td>"; // Menampilkan nomor urut
+                                                echo "<td>" . $p['nama'] . "</td>";
+                                                echo "<td>" . $p['email'] . "</td>";
+                                                echo "<td>" . $p['nohp'] . "</td>";
+                                                echo "<td>" . $p['alamat'] . "</td>";
+                                                echo "<td>" . $p['jenis_kelamin'] . "</td>";
+                                                echo "<td>";
+                                                echo "<a href='pelanggan-edit2.php?id=" . $p['id_Pelanggan'] . "' class='btn btn-sm btn-warning'>Edit</a> ";
+                                                echo "<a href='pelanggan-list3.php?hapus=" . $p['id_Pelanggan'] . "' class='btn btn-sm btn-danger' onclick='return confirm(\"Apakah Anda yakin ingin menghapus pelanggan ini?\")'>Hapus</a>";
+                                                echo "</td>";
+                                                echo "</tr>";
+                                                $counter++; // Increment nomor urut
+                                            }
+                                            ?>
+
                                             
                                     </table>
                                 </div>

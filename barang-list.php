@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['tambah'])) {
                                 <table class="table table-striped table-bordered zero-configuration">
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
+                                            <th>No</th>
                                             <th>Nama Barang</th>
                                             <th>Kode Barang</th>
                                             <th>Harga</th>
@@ -63,11 +63,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['tambah'])) {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php
+                                    <?php
                                         $barang = ambilBarang();
+                                        $counter = 1; // Variabel untuk nomor urut
+
                                         foreach ($barang as $b) {
                                             echo "<tr>";
-                                            echo "<td>" . $b['id_barang'] . "</td>";
+                                            echo "<td>" . $counter . "</td>"; // Menampilkan nomor urut
                                             echo "<td>" . $b['nama_barang'] . "</td>";
                                             echo "<td>" . $b['kode_barang'] . "</td>";
                                             echo "<td>" . $b['harga'] . "</td>";
@@ -77,8 +79,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['tambah'])) {
                                             echo "<a href='barang-list.php?hapus=" . $b['id_barang'] . "' class='btn btn-sm btn-danger' onclick='return confirm(\"Apakah Anda yakin ingin menghapus barang ini?\")'>Hapus</a>";
                                             echo "</td>";
                                             echo "</tr>";
+                                            $counter++; // Increment nomor urut
                                         }
                                         ?>
+
                                     </tbody>
                                 </table>
                             </div>

@@ -44,7 +44,6 @@
                                     </div>
                                     <button type="submit" class="btn login-form__btn submit w-100">Login</button>
                                 </form>
-                                <p class="mt-5 login-form__footer">Don't have an account? <a href="page-register.php" class="text-primary">Sign Up</a> now</p>
                             </div>
                         </div>
                     </div>

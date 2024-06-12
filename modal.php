@@ -102,15 +102,17 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
-                        <form id="formPembayaran">
-                            <div class="form-group">
-                                <label for="totalBayar">Total Bayar</label>
-                                <input type="text" class="form-control" id="totalBayar" readonly>
-                            </div>
-                            <!-- Tambahkan input tambahan untuk detail pembayaran (misalnya, nama, metode pembayaran, dll) -->
-                        </form>
-                    </div>
+                    <form id="form-group">
+                        <div class="form-group">
+                            <label for="namaPembeli">Nama Pembeli</label>
+                            <input type="text" class="form-control" id="nama" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="totalBayar">Total Bayar</label>
+                            <input type="text" class="form-control" id="totalBayar" readonly>
+                        </div>
+                        <!-- Tambahkan input tambahan untuk detail pembayaran lainnya (jika diperlukan) -->
+                    </form>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                         <button type="button" class="btn btn-primary" onclick="submitPembayaran()">Bayar</button>
@@ -273,42 +275,13 @@
             $('#modalBayar').modal('show');
         }
 
-        // function submitPembayaran() {
-        //     var formPembayaran = document.getElementById("formPembayaran");
-        //     var totalBayar = document.getElementById("totalBayar").value;
-
-        //     // Ambil data lain dari form jika ada
-        //     var dataPembayaran = {
-        //         totalBayar: totalBayar,
-        //         // Tambahkan data lain dari form
-        //     };
-
-        //     console.log(dataPembayaran);
-
-        //     // Kirim data ke server
-        //     var xhr = new XMLHttpRequest();
-        //     xhr.open("POST", "prosesPembayaran.php", true);
-        //     xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        //     xhr.onreadystatechange = function() {
-        //         if (xhr.readyState === XMLHttpRequest.DONE) {
-        //             if (xhr.status === 200) {
-        //                 // Tampilkan pesan sukses atau alihkan ke halaman lain
-        //                 alert("Pembayaran berhasil!");
-        //                 location.reload();
-        //             } else {
-        //                 console.log("Terjadi kesalahan saat memproses pembayaran.");
-        //             }
-        //         }
-        //     };
-        //     xhr.send(JSON.stringify(dataPembayaran));
-        // }
-
         function submitPembayaran() {
     var formPembayaran = document.getElementById("formPembayaran");
     var totalBayar = document.getElementById("totalBayar").value;
+    var namaPembeli = document.getElementById("nama").value;
 
-    // Ambil data lain dari form jika ada
     var dataPembayaran = {
+        namaPembeli: namaPembeli,
         totalBayar: parseFloat(totalBayar.replace("Rp ", "").replace(/\./g, "").replace(",", "."))
         // Tambahkan data lain dari form
     };

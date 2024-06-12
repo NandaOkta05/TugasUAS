@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['tambah'])) {
                                 <table class="table table-striped table-bordered zero-configuration">
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
+                                            <th>No</th>
                                             <th>Tanggal</th>
                                             <th>Keterangan</th>
                                             <th>Jenis</th>
@@ -62,22 +62,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['tambah'])) {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php
-                                        $keuangan = ambilKeuangan();
-                                        foreach ($keuangan as $k) {
-                                            echo "<tr>";
-                                            echo "<td>" . $k['id_keuangan'] . "</td>";
-                                            echo "<td>" . $k['tanggal'] . "</td>";
-                                            echo "<td>" . $k['keterangan'] . "</td>";
-                                            echo "<td>" . $k['jenis'] . "</td>";
-                                            echo "<td>" . $k['jumlah'] . "</td>";
-                                            echo "<td>";
-                                            echo "<a href='keuangan-edit.php?id=" . $k['id_keuangan'] . "' class='btn btn-sm btn-warning'>Edit</a> ";
-                                            echo "<a href='keuangan-list.php?hapus=" . $k['id_keuangan'] . "' class='btn btn-sm btn-danger' onclick='return confirm(\"Apakah Anda yakin ingin menghapus data keuangan ini?\")'>Hapus</a>";
-                                            echo "</td>";
-                                            echo "</tr>";
-                                        }
-                                        ?>
+                                    <?php
+                                    $keuangan = ambilKeuangan();
+                                    $counter = 1; // Variabel untuk nomor urut
+
+                                    foreach ($keuangan as $k) {
+                                        echo "<tr>";
+                                        echo "<td>" . $counter . "</td>"; // Menampilkan nomor urut
+                                        echo "<td>" . $k['tanggal'] . "</td>";
+                                        echo "<td>" . $k['keterangan'] . "</td>";
+                                        echo "<td>" . $k['jenis'] . "</td>";
+                                        echo "<td>" . $k['jumlah'] . "</td>";
+                                        echo "<td>";
+                                        echo "<a href='keuangan-edit.php?id=" . $k['id_keuangan'] . "' class='btn btn-sm btn-warning'>Edit</a> ";
+                                        echo "<a href='keuangan-list.php?hapus=" . $k['id_keuangan'] . "' class='btn btn-sm btn-danger' onclick='return confirm(\"Apakah Anda yakin ingin menghapus data keuangan ini?\")'>Hapus</a>";
+                                        echo "</td>";
+                                        echo "</tr>";
+                                        $counter++; // Increment nomor urut
+                                    }
+                                    ?>
+
                                     </tbody>
                                 </table>
                             </div>

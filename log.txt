@@ -18,3 +18,61 @@ Array
     [totalBayar] => 0
 )
 Total Bayar: 0
+Array
+(
+    [totalBayar] => 67
+)
+Total Bayar: 67
+Array
+(
+    [totalBayar] => 50
+)
+Total Bayar: 50
+Array
+(
+    [totalBayar] => 277
+)
+Total Bayar: 277
+Array
+(
+    [totalBayar] => 50
+)
+Total Bayar: 50
+Array
+(
+    [totalBayar] => 50
+)
+Total Bayar: 50
+Array
+(
+    [totalBayar] => 500
+)
+Total Bayar: 500
+Array
+(
+    [totalBayar] => 70
+)
+Total Bayar: 70
+Array
+(
+    [totalBayar] => 50
+)
+Total Bayar: 50
+Array
+(
+    [namaPembeli] => iwan
+    [totalBayar] => 0
+)
+Total Bayar: 0
+Array
+(
+    [namaPembeli] => iwan
+    [totalBayar] => 67
+)
+Total Bayar: 67
+Array
+(
+    [namaPembeli] => iwan
+    [totalBayar] => 50
+)
+Total Bayar: 50

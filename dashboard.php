@@ -1,8 +1,4 @@
 <?php
-
-
-
-
 // Include file koneksi database
 include 'koneksi2.php';
 
@@ -54,101 +50,121 @@ mysqli_close($conn);
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
 </head>
-<body>
-<div class="content-body">
-<div class="container-fluid mt-3">
-    <div class="row">
-        <div class="col-lg-3 col-sm-6">
-            <div class="card gradient-1">
-                <div class="card-body">
-                    <h3 class="card-title text-white">Jumlah Barang</h3>
-                    <div class="d-inline-block">
-                        <h2 class="text-white"><?php echo $total_barang; ?></h2>
+<body id="page-top">
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <?php include 'sidebar.php'; ?>
+        <!-- End of Sidebar -->
+
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+                <!-- Topbar -->
+                <?php include 'topbar.php'; ?>
+                <!-- End of Topbar -->
+
+                <!-- Container Fluid-->
+                <div class="content-body">
+                    <div class="container-fluid mt-3">
+                        <div class="row">
+                            <div class="col-lg-3 col-sm-6">
+                                <div class="card gradient-1">
+                                    <div class="card-body">
+                                        <h3 class="card-title text-white">Jumlah Barang</h3>
+                                        <div class="d-inline-block">
+                                            <h2 class="text-white"><?php echo $total_barang; ?></h2>
+                                        </div>
+                                        <span class="float-right display-5 opacity-5"><i class="fa fa-cubes"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-sm-6">
+                                <div class="card gradient-2">
+                                    <div class="card-body">
+                                        <h3 class="card-title text-white">Jumlah Pelanggan</h3>
+                                        <div class="d-inline-block">
+                                            <h2 class="text-white"><?php echo $total_pelanggan; ?></h2>
+                                        </div>
+                                        <span class="float-right display-5 opacity-5"><i class="fa fa-users"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-sm-6">
+                                <div class="card gradient-3">
+                                    <div class="card-body">
+                                        <h3 class="card-title text-white">Jumlah Kritik&Saran</h3>
+                                        <div class="d-inline-block">
+                                            <h2 class="text-white"><?php echo $total_kritiksaran; ?></h2>
+                                        </div>
+                                        <span class="float-right display-5 opacity-5"><i class="fa fa-comments"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-sm-6">
+                                <div class="card gradient-4">
+                                    <div class="card-body">
+                                        <h3 class="card-title text-white">Total Penjualan</h3>
+                                        <div class="d-inline-block">
+                                            <h2 class="text-white"><?php echo $total_pelanggan; ?></h2>
+                                        </div>
+                                        <span class="float-right display-5 opacity-5"><i class="icon-handbag menu-icon"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Customer Data Table -->
+                        <div class="row mt-5">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h2 class="card-title">Data Pelanggan</h2>
+                                        <div class="table-responsive">
+                                            <table id="customerTable" class="table table-striped table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th>ID Pelanggan</th>
+                                                        <th>Nama</th>
+                                                        <th>Email</th>
+                                                        <th>Telepon</th>
+                                                        <th>Alamat</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
+                                                    while ($row = mysqli_fetch_assoc($resultCustomers)) {
+                                                        echo "<tr>";
+                                                        echo "<td>" . $row['id_Pelanggan'] . "</td>";
+                                                        echo "<td>" . $row['nama'] . "</td>";
+                                                        echo "<td>" . $row['email'] . "</td>";
+                                                        echo "<td>" . $row['nohp'] . "</td>";
+                                                        echo "<td>" . $row['alamat'] . "</td>";
+                                                        echo "</tr>";
+                                                    }
+                                                    ?>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>                        
+                            </div>
+                        </div>
                     </div>
-                    <span class="float-right display-5 opacity-5"><i class="fa fa-cubes"></i></span>
+                    <!-- #/ container -->
                 </div>
+                <!---Container Fluid-->
             </div>
-        </div>
-        <div class="col-lg-3 col-sm-6">
-            <div class="card gradient-2">
-                <div class="card-body">
-                    <h3 class="card-title text-white">Jumlah Pelanggan</h3>
-                    <div class="d-inline-block">
-                        <h2 class="text-white"><?php echo $total_pelanggan; ?></h2>
-                    </div>
-                    <span class="float-right display-5 opacity-5"><i class="fa fa-users"></i></span>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-sm-6">
-            <div class="card gradient-3">
-                <div class="card-body">
-                    <h3 class="card-title text-white">Jumlah Kritik&Saran</h3>
-                    <div class="d-inline-block">
-                        <h2 class="text-white"><?php echo $total_kritiksaran; ?></h2>
-                    </div>
-                    <span class="float-right display-5 opacity-5"><i class="fa fa-comments"></i></span>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-sm-6">
-            <div class="card gradient-4">
-                <div class="card-body">
-                    <h3 class="card-title text-white">Total Penjualan</h3>
-                    <div class="d-inline-block">
-                        <h2 class="text-white"><?php echo $total_pelanggan;?></h2>
-                    </div>
-                    <span class="float-right display-5 opacity-5"><i class="fa fa-heart"></i></span>
-                </div>
-            </div>
+            <!-- Footer -->
+            <?php include 'footer.php'; ?>
+            <!-- End of Footer -->
         </div>
     </div>
 
-    <!-- Customer Data Table -->
-    <div class="row mt-5">
-        <div class="col-lg-12">
-            <div class="card">
-                <div class="card-body">
-                    <h2 class="card-title">Data Pelanggan</h2>
-                    <div class="table-responsive">
-                        <table id="customerTable" class="table table-striped table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>ID Pelanggan</th>
-                                    <th>Nama</th>
-                                    <th>Email</th>
-                                    <th>Telepon</th>
-                                    <th>Alamat</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                while ($row = mysqli_fetch_assoc($resultCustomers)) {
-                                    echo "<tr>";
-                                    echo "<td>" . $row['id_Pelanggan'] . "</td>";
-                                    echo "<td>" . $row['nama'] . "</td>";
-                                    echo "<td>" . $row['email'] . "</td>";
-                                    echo "<td>" . $row['nohp'] . "</td>";
-                                    echo "<td>" . $row['alamat'] . "</td>";
-                                    echo "</tr>";
-                                }
-                                ?>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>                        
-        </div>
-    </div>
-</div>
-<!-- #/ container -->
-</div>
-<!--**********************************
-Content body end
-***********************************-->
-<!--**********************************
-        Scripts
-    ***********************************-->
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Scripts -->
     <script src="./quixlab-master/plugins/common/common.min.js"></script>
     <script src="./quixlab-master/js/custom.min.js"></script>
     <script src="./quixlab-master/js/settings.js"></script>
